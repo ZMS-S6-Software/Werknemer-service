@@ -3,6 +3,9 @@ import express from 'express';
 import sql from 'mssql';
 import dotenv from 'dotenv';
 
+//controllers
+import werknemerController from "./Controllers/WerknemerController.js";
+
 dotenv.config();
 
 const app = express();
@@ -30,7 +33,8 @@ sql.connect(config)
       console.log(`Server is running on port ${PORT}`);
     });
 
-    // Controller inlezen nadat de databaseverbinding tot stand is gebracht
+    //controller inlezen
+    werknemerController(app)
    
   })
   .catch(err => {
